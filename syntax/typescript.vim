@@ -129,6 +129,8 @@ syntax keyword typescriptGlobalNodeObjects  module exports global process __dirn
 
 syntax keyword typescriptExceptions try catch throw finally Error EvalError RangeError ReferenceError SyntaxError TypeError URIError
 
+syn match Function /[a-zA-Z0-9_]\+\s*(/me=e-1
+
 syntax keyword typescriptReserved constructor declare as interface module abstract enum int short export interface static byte extends long super char final native synchronized class float package throws goto private transient debugger implements protected volatile double import public type namespace from get set keyof satisfies
 "}}}
 "" typescript/DOM/HTML/CSS specified things"{{{
@@ -207,7 +209,7 @@ syn match typescriptBraces "[{}\[\]]"
 syn match typescriptParens "[()]"
 syn match typescriptEndColons "[;,]"
 syn match typescriptLogicSymbols "\(&&\)\|\(||\)\|\(??\)\|\(!\)"
-syn match typescriptOpSymbols "=\{1,3}\|!==\|!=\|<\|>\|>=\|<=\|++\|+=\|--\|-="
+syn match typescriptOpSymbols "=\{1,3}\|!==\|!=\|<\|>\|>=\|<=\|+\{1,2}\|+=\|-\{1,2}\|-="
 
 " typescriptFold Function {{{
 
@@ -234,11 +236,11 @@ endif
 HiLink typescriptParameters Operator
 HiLink typescriptSuperBlock Operator
 
-HiLink typescriptEndColons Exception
+HiLink typescriptEndColons Delimiter
 HiLink typescriptOpSymbols Operator
-HiLink typescriptLogicSymbols Boolean
-HiLink typescriptBraces Function
-HiLink typescriptParens Operator
+HiLink typescriptLogicSymbols Operator
+HiLink typescriptBraces Delimiter
+HiLink typescriptParens Delimiter
 HiLink typescriptComment Comment
 HiLink typescriptLineComment Comment
 HiLink typescriptRefComment Include
@@ -275,7 +277,7 @@ HiLink typescriptParensErrC Error
 HiLink typescriptReserved Keyword
 HiLink typescriptOperator Operator
 HiLink typescriptType Type
-HiLink typescriptNull Type
+HiLink typescriptNull Constant
 HiLink typescriptNumber Number
 HiLink typescriptFloat Number
 HiLink typescriptDecorators Special
